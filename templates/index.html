@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    <p>Welcome to awesome idea generator.</p>
+    {% if idea %}
+        <p class="lead">{{ idea }}</p>
+    {% elif error %}
+        {% autoescape false %}
+            <div class="alert alert-success" role="alert">
+                {{ error }}
+            </div>
+        {% endautoescape %}
+    {% else %}
+        <p class="lead">...</p>
+    {% endif %}
+    <form method="get">
+        <button class="btn btn-lg btn-secondary fw-bold bg-white" type="submit" formaction="/generate">
+            <i class="fa fa-compass" aria-hidden="true"></i> Generate
+        </button>
+        <button class="btn btn-lg btn-success fw-bold" type="submit" formaction="/like">
+            Like <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        </button>
+    </form>
+{% endblock %}

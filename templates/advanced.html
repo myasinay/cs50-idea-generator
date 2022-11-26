@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <h4>Upload a Data File</h4>
+    <div class="mb-3 px-3">
+        <label for="formFile" class="form-label">Only <strong>JSON</strong> files supported for now.</label>
+        <label for="formFile" class="form-label">Maximum upload file size: <strong>{{max_size}} MB</strong>.</label>
+        <form method=post action="/uploader" enctype=multipart/form-data>
+            <input class="form-control" type="file" name="file">
+
+            <button class="btn btn-lg btn-light fw-bold" type="submit">
+                Upload <i class="fa fa-upload" aria-hidden="true"></i>
+            </button>
+        </form>
+    </div>
+
+    <p>You might want to take a look our <a class="footer-link" href="/static/data/data.json" target="_blank"><strong>data</strong></a>
+         or <a class="footer-link" href="/static/data/data.schema.json" target="_blank"><strong>JSON schema</strong></a>.</p>
+
+
+{% endblock %}
